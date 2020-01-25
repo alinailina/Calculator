@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
+
+@blue: rgb(0, 216, 255);
+@yellow: rgb(208, 255, 0);
+@pink: rgb(255, 0, 225);
+@red: rgb(255, 0, 0);
+@green: rgb(0, 255, 24);
+@black: rgb(22, 22, 22);
+@gray: rgb(199, 199, 199);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  // at minimun 120px, at maximin auto
+  grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+
+  button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: @blue;
+    &:hover {
+      background-color: rgba(0, 216, 255, 0.5);
+    }
+
+    &.span-two {
+      // span 2 cols
+      grid-column: span 2;
+    }
+  }
+
+  .output {
+    // span 4 cols
+    grid-column: span 4;
+    background: @black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+    /* breaks large strings of characters in an arbitrary place
+    to fit inside their container */
+    word-wrap: break-word;
+    word-break: break-all;
+    .previous-operand {
+      color: @gray;
+      font-size: 1.5rem;
+    }
+
+    .current-operand {
+      color: white;
+      font-size: 3rem;
+    }
+  }
+}

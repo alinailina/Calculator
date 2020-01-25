@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OUuhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+}
+.container button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: #00d8ff;
+}
+.container button:hover {
+  background-color: rgba(0, 216, 255, 0.5);
+}
+.container button.span-two {
+  grid-column: span 2;
+}
+.container .output {
+  grid-column: span 4;
+  background: #161616;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  color: white;
+  /* breaks large strings of characters in an arbitrary place
+    to fit inside their container */
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.container .output .previous-operand {
+  color: #c7c7c7;
+  font-size: 1.5rem;
+}
+.container .output .current-operand {
+  color: white;
+  font-size: 3rem;
+}
